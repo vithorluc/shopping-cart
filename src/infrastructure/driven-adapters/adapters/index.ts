@@ -13,11 +13,19 @@ export const providers = [
     classAdapter: UserMongooseRepositoryAdapter,
     key: ADD_USER_REPOSITORY,
   },
+  {
+    classAdapter: ProductMongooseRepositoryAdapter,
+    key: ADD_PRODUCT_REPOSITORY,
+  }
 ];
 
 export const services = [
   {
     classAdapter: AddUserServiceImpl,
     key: ADD_USER_SERVICE,
+  },
+  {
+    classAdapter: AddProductServiceImpl,
+    key: ADD_PRODUCT_SERVICE,
   },
 ];
