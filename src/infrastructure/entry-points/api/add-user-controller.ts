@@ -5,7 +5,7 @@ import {
   IAddUserService,
 } from "@/domain/use-cases/add-user-service";
 
-@Mapping("api/v1/user")
+@Mapping("api/v1/users")
 export class AddUserController {
   constructor(
     @Adapter(ADD_USER_SERVICE) private readonly addUserService: IAddUserService
