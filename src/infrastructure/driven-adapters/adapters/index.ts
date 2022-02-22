@@ -14,6 +14,10 @@ import { GET_PRODUCT_REPOSITORY } from "@/domain/models/contracts/get-product-re
 import { GET_PRODUCT_SERVICE } from "@/domain/use-cases/get-product-service";
 import { GetProductServiceImpl } from "@/domain/use-cases/impl/get-product-service-impl";
 
+import { GET_PRODUCTS_REPOSITORY } from "@/domain/models/contracts/get-products-repository";
+import { GET_PRODUCTS_SERVICE } from "@/domain/use-cases/get-products-service";
+import { GetProductsServiceImpl } from "@/domain/use-cases/impl/get-products-service-impl";
+
 import { ProductMongooseRepositoryAdapter } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/product-mongoose-repository-adapter";
 
 export const providers = [
@@ -29,6 +33,10 @@ export const providers = [
     classAdapter: ProductMongooseRepositoryAdapter,
     key: GET_PRODUCT_REPOSITORY,
   },
+  {
+    classAdapter: ProductMongooseRepositoryAdapter,
+    key: GET_PRODUCTS_REPOSITORY,
+  },
 ];
 
 export const services = [
@@ -43,5 +51,9 @@ export const services = [
   {
     classAdapter: GetProductServiceImpl,
     key: GET_PRODUCT_SERVICE,
+  },
+  {
+    classAdapter: GetProductsServiceImpl,
+    key: GET_PRODUCTS_SERVICE,
   },
 ];
