@@ -18,6 +18,11 @@ import { GET_PRODUCTS_REPOSITORY } from "@/domain/models/contracts/get-products-
 import { GET_PRODUCTS_SERVICE } from "@/domain/use-cases/get-products-service";
 import { GetProductsServiceImpl } from "@/domain/use-cases/impl/get-products-service-impl";
 
+import { DELETE_PRODUCT_REPOSITORY } from "@/domain/models/contracts/delete-product-repository";
+import { DELETE_PRODUCT_SERVICE } from "@/domain/use-cases/delete-product-service";
+import { DeleteProductServiceImpl } from "@/domain/use-cases/impl/delete-product-service-impl";
+
+
 import { ProductMongooseRepositoryAdapter } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/product-mongoose-repository-adapter";
 
 export const providers = [
@@ -37,6 +42,10 @@ export const providers = [
     classAdapter: ProductMongooseRepositoryAdapter,
     key: GET_PRODUCTS_REPOSITORY,
   },
+  {
+    classAdapter: ProductMongooseRepositoryAdapter,
+    key: DELETE_PRODUCT_REPOSITORY,
+  },
 ];
 
 export const services = [
@@ -55,5 +64,9 @@ export const services = [
   {
     classAdapter: GetProductsServiceImpl,
     key: GET_PRODUCTS_SERVICE,
+  },
+  {
+    classAdapter: DeleteProductServiceImpl,
+    key: DELETE_PRODUCT_SERVICE,
   },
 ];

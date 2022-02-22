@@ -2,13 +2,15 @@ import { ProductModel, ProductParams } from "@/domain/models/product";
 import { IAddProductRepository } from "@/domain/models/contracts/add-product-repository";
 import { IGetProductRepository } from "@/domain/models/contracts/get-product-repository";
 import { IGetProductsRepository } from "@/domain/models/contracts/get-products-repository";
+import { IDeleteProductRepository } from "@/domain/models/contracts/delete-product-repository";
 import { ProductModelSchema } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/models/product";
 
 export class ProductMongooseRepositoryAdapter
   implements
     IAddProductRepository,
     IGetProductRepository,
-    IGetProductsRepository
+    IGetProductsRepository,
+    IDeleteProductRepository
 {
   async addProductRepository(data: ProductParams): Promise<ProductModel> {
     return await ProductModelSchema.create(data);
@@ -20,5 +22,9 @@ export class ProductMongooseRepositoryAdapter
 
   async getProductsRepository(): Promise<ProductModel[]> {
     return await ProductModelSchema.find({});
+  }
+
+  async deleteProductRepository(id: String): Promise<ProductModel> {
+    return await ProductModelSchema.findByIdAndDelete({_id: id});
   }
 }
