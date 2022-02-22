@@ -6,11 +6,14 @@ import { GetProductsController } from "@/infrastructure/entry-points/api/get-pro
 import { DeleteProductController } from "@/infrastructure/entry-points/api/delete-product-controller";
 import { UpdateProductController } from "@/infrastructure/entry-points/api/update-product-controller";
 
+import { AddCartController } from "@/infrastructure/entry-points/api/add-cart-controller";;
+
 export const controllers = [
   AddUserController,
   AddProductController,
   GetProductController,
   GetProductsController,
   DeleteProductController,
-  UpdateProductController
+  UpdateProductController,
+  AddCartController
 ];
