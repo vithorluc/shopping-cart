@@ -22,6 +22,10 @@ import { DELETE_PRODUCT_REPOSITORY } from "@/domain/models/contracts/delete-prod
 import { DELETE_PRODUCT_SERVICE } from "@/domain/use-cases/delete-product-service";
 import { DeleteProductServiceImpl } from "@/domain/use-cases/impl/delete-product-service-impl";
 
+import { UPDATE_PRODUCT_REPOSITORY } from "@/domain/models/contracts/update-product-repository";
+import { UPDATE_PRODUCT_SERVICE } from "@/domain/use-cases/update-product-service";
+import { UpdateProductServiceImpl } from "@/domain/use-cases/impl/update-product-service-impl";
+
 
 import { ProductMongooseRepositoryAdapter } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/product-mongoose-repository-adapter";
 
@@ -46,6 +50,10 @@ export const providers = [
     classAdapter: ProductMongooseRepositoryAdapter,
     key: DELETE_PRODUCT_REPOSITORY,
   },
+  {
+    classAdapter: ProductMongooseRepositoryAdapter,
+    key: UPDATE_PRODUCT_REPOSITORY,
+  },
 ];
 
 export const services = [
@@ -68,5 +76,9 @@ export const services = [
   {
     classAdapter: DeleteProductServiceImpl,
     key: DELETE_PRODUCT_SERVICE,
+  },
+  {
+    classAdapter: UpdateProductServiceImpl,
+    key: UPDATE_PRODUCT_SERVICE,
   },
 ];

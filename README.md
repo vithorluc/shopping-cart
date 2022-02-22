@@ -1,4 +1,5 @@
 # shopping-cart
+
 ```
 shopping-cart
 ├─ .gitignore
@@ -20,7 +21,8 @@ shopping-cart
 │  │  │  │  ├─ add-user-repository.ts
 │  │  │  │  ├─ delete-product-repository.ts
 │  │  │  │  ├─ get-product-repository.ts
-│  │  │  │  └─ get-products-repository.ts
+│  │  │  │  ├─ get-products-repository.ts
+│  │  │  │  └─ update-product-repository.ts
 │  │  │  ├─ product.ts
 │  │  │  └─ user.ts
 │  │  └─ use-cases
@@ -29,12 +31,14 @@ shopping-cart
 │  │     ├─ delete-product-service.ts
 │  │     ├─ get-product-service.ts
 │  │     ├─ get-products-service.ts
-│  │     └─ impl
-│  │        ├─ add-product-service-impl.ts
-│  │        ├─ add-user-service-impl.ts
-│  │        ├─ delete-product-service-impl.ts
-│  │        ├─ get-product-service-impl.ts
-│  │        └─ get-products-service-impl.ts
+│  │     ├─ impl
+│  │     │  ├─ add-product-service-impl.ts
+│  │     │  ├─ add-user-service-impl.ts
+│  │     │  ├─ delete-product-service-impl.ts
+│  │     │  ├─ get-product-service-impl.ts
+│  │     │  ├─ get-products-service-impl.ts
+│  │     │  └─ update-product-service-impl.ts
+│  │     └─ update-product-service.ts
 │  ├─ index.ts
 │  └─ infrastructure
 │     ├─ driven-adapters
@@ -57,7 +61,8 @@ shopping-cart
 │        │  ├─ delete-product-controller.ts
 │        │  ├─ get-product-controller.ts
 │        │  ├─ get-products-controller.ts
-│        │  └─ index.ts
+│        │  ├─ index.ts
+│        │  └─ update-product-controller.ts
 │        ├─ helpers
 │        └─ index.ts
 ├─ tests
