@@ -1,3 +1,10 @@
 import { AddUserController } from "@/infrastructure/entry-points/api/add-user-controller";
+
+import { GetProductController } from "@/infrastructure/entry-points/api/get-product-controller";
 import { AddProductController } from "@/infrastructure/entry-points/api/add-product-controller";
-export const controllers = [AddUserController, AddProductController];
+
+export const controllers = [
+  AddUserController,
+  AddProductController,
+  GetProductController,
+];

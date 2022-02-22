@@ -1,6 +1,6 @@
 import { ADD_PRODUCT_SERVICE } from "@/domain/use-cases/add-product-service";
 import { IAddProductService } from "@/domain/use-cases/add-product-service";
-import { AddProductParams, ProductModel } from "@/domain/models/product";
+import { ProductParams, ProductModel } from "@/domain/models/product";
 import { Mapping, Body, Post, Adapter } from "@tsclean/core";
 
 @Mapping("api/v1/products")
@@ -11,8 +11,8 @@ export class AddProductController {
   ) {}
 
   @Post()
-  async addUserController(
-    @Body() data: AddProductParams
+  async addProductController(
+    @Body() data: ProductParams
   ): Promise<ProductModel> {
     return await this.addProductService.addProductService(data);
   }

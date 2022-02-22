@@ -5,4 +5,5 @@ export type ProductModel = {
   price: number;
 };
 
-export type AddProductParams = Omit<ProductModel, "id">;
+export type ProductParams = Omit<ProductModel, "id">;
+

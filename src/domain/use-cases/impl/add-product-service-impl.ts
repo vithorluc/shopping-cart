@@ -1,6 +1,6 @@
 import { Adapter, Service } from "@tsclean/core";
 import { ProductModel } from "@/domain/models/product";
-import { AddProductParams } from "@/domain/models/product";
+import { ProductParams } from "@/domain/models/product";
 import { IAddProductService } from "@/domain/use-cases/add-product-service";
 import {
   ADD_PRODUCT_REPOSITORY,
@@ -9,12 +9,12 @@ import {
 
 @Service()
 export class AddProductServiceImpl implements IAddProductService {
-    constructor(
-        @Adapter(ADD_PRODUCT_REPOSITORY) private readonly addProductRepository: IAddProductRepository
-    ) {
-    }
+  constructor(
+    @Adapter(ADD_PRODUCT_REPOSITORY)
+    private readonly addProductRepository: IAddProductRepository
+  ) {}
 
-    async addProductService(data: AddProductParams): Promise<ProductModel> {
-        return await this.addProductRepository.addProductRepository(data);
-    }
+  async addProductService(data: ProductParams): Promise<ProductModel> {
+    return await this.addProductRepository.addProductRepository(data);
+  }
 }
