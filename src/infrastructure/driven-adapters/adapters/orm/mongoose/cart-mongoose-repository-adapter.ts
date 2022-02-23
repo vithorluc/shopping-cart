@@ -3,11 +3,22 @@ import { CartModelSchema } from "@/infrastructure/driven-adapters/adapters/orm/m
 import { ProductModelSchema } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/models/product";
 import { IAddCartRepository } from "@/domain/models/contracts/add-cart-repository";
 import { IUpdateCartRepository } from "@/domain/models/contracts/update-cart-repository";
+import { IGetCartRepository } from "@/domain/models/contracts/get-cart-repository";
 import { HttpException } from "@tsclean/core";
 export class CartMongooseRepositoryAdapter
   extends HttpException
-  implements IAddCartRepository, IUpdateCartRepository
+  implements IAddCartRepository, IUpdateCartRepository, IGetCartRepository
 {
+  async getCartRepository(id: String): Promise<CartModel> {
+    const cart = await CartModelSchema.findById({ _id: id });
+
+    if (!cart) {
+      throw new HttpException("cart not found", 404);
+    }
+
+    return cart;
+  }
+
   async addCartRepository(data: CartParams): Promise<CartModel> {
     (data.total = 0), (data.taxes = 0), (data.subtotal = 0);
 

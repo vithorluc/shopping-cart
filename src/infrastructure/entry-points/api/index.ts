@@ -8,7 +8,7 @@ import { UpdateProductController } from "@/infrastructure/entry-points/api/updat
 
 import { AddCartController } from "@/infrastructure/entry-points/api/add-cart-controller";;
 import { UpdateCartController } from "@/infrastructure/entry-points/api/update-cart-controller";
-
+import { GetCartController } from "@/infrastructure/entry-points/api/get-cart-controller";;
 export const controllers = [
   AddUserController,
   AddProductController,
@@ -17,5 +17,6 @@ export const controllers = [
   DeleteProductController,
   UpdateProductController,
   AddCartController,
-  UpdateCartController
+  UpdateCartController,
+  GetCartController
 ];

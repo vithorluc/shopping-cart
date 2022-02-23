@@ -7,6 +7,7 @@ import { DELETE_PRODUCT_SERVICE } from "@/domain/use-cases/delete-product-servic
 import { UPDATE_PRODUCT_SERVICE } from "@/domain/use-cases/update-product-service";
 import { ADD_CART_SERVICE } from "@/domain/use-cases/add-cart-service";
 import { UPDATE_CART_SERVICE } from "@/domain/use-cases/update-cart-service";
+import { GET_CART_SERVICE } from "@/domain/use-cases/get-cart-service";
 // contracts
 import { ADD_USER_REPOSITORY } from "@/domain/models/contracts/add-user-repository";
 import { ADD_PRODUCT_REPOSITORY } from "@/domain/models/contracts/add-product-repository";
@@ -16,6 +17,7 @@ import { DELETE_PRODUCT_REPOSITORY } from "@/domain/models/contracts/delete-prod
 import { UPDATE_PRODUCT_REPOSITORY } from "@/domain/models/contracts/update-product-repository";
 import { ADD_CART_REPOSITORY } from "@/domain/models/contracts/add-cart-repository";
 import { UPDATE_CART_REPOSITORY } from "@/domain/models/contracts/update-cart-repository";
+import { GET_CART_REPOSITORY } from "@/domain/models/contracts/get-cart-repository";
 // impl
 import { AddUserServiceImpl } from "@/domain/use-cases/impl/add-user-service-impl";
 import { AddProductServiceImpl } from "@/domain/use-cases/impl/add-product-service-impl";
@@ -25,6 +27,7 @@ import { DeleteProductServiceImpl } from "@/domain/use-cases/impl/delete-product
 import { UpdateProductServiceImpl } from "@/domain/use-cases/impl/update-product-service-impl";
 import { AddCartServiceImpl } from "@/domain/use-cases/impl/add-cart-service-impl";
 import { UpdateCartServiceImpl } from "@/domain/use-cases/impl/update-cart-service-impl";
+import { GetCartServiceImpl } from "@/domain/use-cases/impl/get-cart-service-impl";
 // adapters
 import { CartMongooseRepositoryAdapter } from "../adapters/orm/mongoose/cart-mongoose-repository-adapter";
 import { UserMongooseRepositoryAdapter } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/user-mongoose-repository-adapter";
@@ -62,6 +65,10 @@ export const adapters = [
   {
     useClass: CartMongooseRepositoryAdapter,
     provide: UPDATE_CART_REPOSITORY,
+  },
+  {
+    useClass: CartMongooseRepositoryAdapter,
+    provide: GET_CART_REPOSITORY,
   }
 ];
 
@@ -97,5 +104,9 @@ export const services = [
   {
     useClass: UpdateCartServiceImpl,
     provide: UPDATE_CART_SERVICE
+  },
+  {
+    useClass: GetCartServiceImpl,
+    provide: GET_CART_SERVICE
   }
 ];

@@ -34,6 +34,10 @@ import { UPDATE_CART_REPOSITORY } from "@/domain/models/contracts/update-cart-re
 import { UPDATE_CART_SERVICE } from "@/domain/use-cases/update-cart-service";
 import { UpdateCartServiceImpl } from "@/domain/use-cases/impl/update-cart-service-impl";
 
+import { GET_CART_REPOSITORY } from "@/domain/models/contracts/get-cart-repository";
+import { GET_CART_SERVICE } from "@/domain/use-cases/get-cart-service";
+import { GetCartServiceImpl } from "@/domain/use-cases/impl/get-cart-service-impl";
+
 import { ProductMongooseRepositoryAdapter } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/product-mongoose-repository-adapter";
 import { CartMongooseRepositoryAdapter } from "./orm/mongoose/cart-mongoose-repository-adapter";
 
@@ -70,6 +74,10 @@ export const providers = [
     classAdapter: CartMongooseRepositoryAdapter,
     key: UPDATE_CART_REPOSITORY,
   },
+  {
+    classAdapter: CartMongooseRepositoryAdapter,
+    key: GET_CART_REPOSITORY,
+  },
 ];
 
 export const services = [
@@ -104,5 +112,9 @@ export const services = [
   {
     classAdapter: UpdateCartServiceImpl,
     key: UPDATE_CART_SERVICE,
+  },
+  {
+    classAdapter: GetCartServiceImpl,
+    key: GET_CART_SERVICE,
   },
 ];
