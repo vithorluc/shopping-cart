@@ -6,7 +6,7 @@ export type CartModel = {
   total: number;
   subtotal: number;
   taxes: number;
-  itens: Array<ProductModel>;
+  orders: Array<ProductModel>;
   status: string;
 };
 

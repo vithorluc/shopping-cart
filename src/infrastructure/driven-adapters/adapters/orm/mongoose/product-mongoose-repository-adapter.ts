@@ -5,8 +5,10 @@ import { IGetProductsRepository } from "@/domain/models/contracts/get-products-r
 import { IDeleteProductRepository } from "@/domain/models/contracts/delete-product-repository";
 import { IUpdateProductRepository } from "@/domain/models/contracts/update-product-repository";
 import { ProductModelSchema } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/models/product";
+import { HttpException } from "@tsclean/core";
 
 export class ProductMongooseRepositoryAdapter
+  extends HttpException
   implements
     IAddProductRepository,
     IGetProductRepository,
@@ -19,21 +21,39 @@ export class ProductMongooseRepositoryAdapter
   }
 
   async getProductRepository(id: String): Promise<ProductModel> {
-    return await ProductModelSchema.findById({ _id: id });
+    const product = await ProductModelSchema.findById({ _id: id });
+
+    if (!product) {
+      throw new HttpException("product not found", 404);
+    }
+
+    return product;
   }
 
   async getProductsRepository(): Promise<ProductModel[]> {
     return await ProductModelSchema.find({});
   }
 
-  async deleteProductRepository(id: String): Promise<ProductModel> {
-    return await ProductModelSchema.findByIdAndDelete({ _id: id });
+  async deleteProductRepository(id: String): Promise<ProductModel | any> {
+    const product = await ProductModelSchema.findById({ _id: id });
+
+    if (!product) {
+      throw new HttpException("product not found", 404);
+    }
+
+    return product.delete();
   }
 
   async updateProductRepository(
     id: String,
     data: ProductParams
   ): Promise<ProductModel> {
-    return await ProductModelSchema.findOneAndUpdate({ _id: id }, data);
+    const product = await ProductModelSchema.findById({ _id: id });
+
+    if (!product) {
+      throw new HttpException("product not found", 404);
+    }
+
+    return product.update(data);
   }
 }

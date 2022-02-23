@@ -7,10 +7,12 @@ const schema = new Schema<CartModel>({
   total: { type: Number, default: 0 },
   subtotal: { type: Number, default: 0 },
   taxes: { type: Number, default: 0 },
-  itens: [
+  orders: [
     {
       productId: { type: Types.ObjectId, ref: "Products", unique: true },
-      quantity: { type: Number, min: 1},
+      name: { type: String },
+      price: { type: Number },
+      quantity: { type: Number, min: 1, default: 1 },
     },
   ],
   status: { type: String, default: "PENDING" },

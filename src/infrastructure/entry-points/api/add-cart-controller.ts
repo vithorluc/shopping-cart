@@ -11,9 +11,7 @@ export class AddCartController {
   ) {}
 
   @Post()
-  async addCartController(
-    @Body() data: CartParams
-  ): Promise<CartModel> {
+  async addCartController(@Body() data: CartParams): Promise<CartModel> {
     return await this.addCartService.addCartService(data);
   }
 }

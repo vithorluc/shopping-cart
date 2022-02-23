@@ -13,7 +13,9 @@ export class DeleteProductController {
   ) {}
 
   @Delete(":id")
-  async deleteProductController(@Param("id") id: String): Promise<ProductModel> {
+  async deleteProductController(
+    @Param("id") id: String
+  ): Promise<ProductModel> {
     return await this.deleteProductService.deleteProductService(id);
   }
 }

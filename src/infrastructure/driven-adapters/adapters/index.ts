@@ -1,4 +1,3 @@
-
 // entity user
 import { ADD_USER_REPOSITORY } from "@/domain/models/contracts/add-user-repository";
 import { ADD_USER_SERVICE } from "@/domain/use-cases/add-user-service";
@@ -30,6 +29,10 @@ import { UpdateProductServiceImpl } from "@/domain/use-cases/impl/update-product
 import { ADD_CART_REPOSITORY } from "@/domain/models/contracts/add-cart-repository";
 import { ADD_CART_SERVICE } from "@/domain/use-cases/add-cart-service";
 import { AddCartServiceImpl } from "@/domain/use-cases/impl/add-cart-service-impl";
+
+import { UPDATE_CART_REPOSITORY } from "@/domain/models/contracts/update-cart-repository";
+import { UPDATE_CART_SERVICE } from "@/domain/use-cases/update-cart-service";
+import { UpdateCartServiceImpl } from "@/domain/use-cases/impl/update-cart-service-impl";
 
 import { ProductMongooseRepositoryAdapter } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/product-mongoose-repository-adapter";
 import { CartMongooseRepositoryAdapter } from "./orm/mongoose/cart-mongoose-repository-adapter";
@@ -63,6 +66,10 @@ export const providers = [
     classAdapter: CartMongooseRepositoryAdapter,
     key: ADD_CART_REPOSITORY,
   },
+  {
+    classAdapter: CartMongooseRepositoryAdapter,
+    key: UPDATE_CART_REPOSITORY,
+  },
 ];
 
 export const services = [
@@ -93,5 +100,9 @@ export const services = [
   {
     classAdapter: AddCartServiceImpl,
     key: ADD_CART_SERVICE,
+  },
+  {
+    classAdapter: UpdateCartServiceImpl,
+    key: UPDATE_CART_SERVICE,
   },
 ];
