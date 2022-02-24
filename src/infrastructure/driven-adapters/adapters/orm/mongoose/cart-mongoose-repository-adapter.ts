@@ -64,6 +64,9 @@ export class CartMongooseRepositoryAdapter
       );
     }
 
+    if (data.discount) cart.discount = data.discount;
+    if (data.taxes) cart.taxes = data.taxes;
+
     await Promise.all(
       data.orders.map(async (prod, index) => {
         let product = await ProductModelSchema.findById({
@@ -112,6 +115,11 @@ export class CartMongooseRepositoryAdapter
       cart.total += order.quantity * order.price;
       cart.subtotal += order.price;
     });
+
+    cart.total =
+      (cart.total -
+      (cart.discount * cart.total) / 100) +
+      (cart.taxes * cart.total) / 100;
 
     await cart.updateOne(cart);
 

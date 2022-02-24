@@ -7,6 +7,7 @@ const schema = new Schema<CartModel>({
   total: { type: Number, default: 0 },
   subtotal: { type: Number, default: 0 },
   taxes: { type: Number, default: 0 },
+  discount: { type: Number, default: 0 },
   orders: [
     {
       productId: { type: Types.ObjectId, ref: "Products", unique: true },

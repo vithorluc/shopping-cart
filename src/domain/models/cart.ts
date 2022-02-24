@@ -8,6 +8,7 @@ export type CartModel = {
   taxes: number;
   orders: Array<ProductModel>;
   status: string;
+  discount: number; 
 };
 
 export type CartParams = Omit<CartModel, "id">;
