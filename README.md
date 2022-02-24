@@ -109,7 +109,7 @@ shopping-cart
 ## Carts
 | METHOD | ROUTE | DESCRIPTION | 
 | --- | --- | --- |
-| GET | api/v1/carts/:id | Get a cart |
+| GET | api/v1/carts/:user_id | Get a cart |
 | POST | api/v1/carts | Create a cart |
 | PUT | api/v1/carts/:id | Update a cart |
 
