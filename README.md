@@ -116,7 +116,7 @@ shopping-cart
 
 
 ## Project Clean Achitecture Based
-![image of clean achitecture](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2F%40icarovictor%2Fthe-clean-architecture-54df8a46dba1&psig=AOvVaw1Lqy3HlsH-XyGSncEhdbhw&ust=1645800752686000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOCmqtzLmPYCFQAAAAAdAAAAABAI)
+- Clean architecture is a staple of the modern app development space. Particularly popular for Java and Android developers, this architecture is designed to make it easier to create stable apps even when outer elements such as UI, databases, or external APIs are always changing.
 
 ## Project API access link 
 [Shopping-cart-api-app from Heroku Platform](https://shopping-cart-api-app.herokuapp.com/ "Heroku Project")
