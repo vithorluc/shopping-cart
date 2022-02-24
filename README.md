@@ -86,10 +86,36 @@ shopping-cart
 │  └─ infrastructure
 ├─ tsconfig-build.json
 └─ tsconfig.json
-
 ```
 
+# Entities
+
+## Users 
+| METHOD | ROUTE | DESCRIPTION | 
+| --- | --- | --- |
+| POST | api/v1/users | Get an user |
+
+
+## Products
+| METHOD | ROUTE | DESCRIPTION | 
+| --- | --- | --- |
+| GET | api/v1/products/:id | Get a product |
+| POST | api/v1/products | Create a product |
+| PUT | api/v1/products/:id | Update a product |
+| DELETE | api/v1/products/:id | Delete a product |
+| GET | api/v1/products | Get all products |
+
+
+## Carts
+| METHOD | ROUTE | DESCRIPTION | 
+| --- | --- | --- |
+| GET | api/v1/carts/:id | Get a cart |
+| POST | api/v1/carts | Create a cart |
+| PUT | api/v1/carts/:id | Update a cart |
+
+## Project API access link 
 [Shopping-cart-api-app from Heroku Platform](https://shopping-cart-api-app.herokuapp.com/ "Heroku Project")
 
+## Project explanation video 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/hx94qo26egk/0.jpg)](https://drive.google.com/file/d/1gQksgB2oOBhhT2M9-7uDbGIt3-yPp76s/view)
 
