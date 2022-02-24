@@ -88,3 +88,8 @@ shopping-cart
 └─ tsconfig.json
 
 ```
+
+[Shopping-cart-api-app from Heroku Platform](https://shopping-cart-api-app.herokuapp.com/ "Heroku Project")
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/hx94qo26egk/0.jpg)](https://drive.google.com/file/d/1gQksgB2oOBhhT2M9-7uDbGIt3-yPp76s/view)
+
